@@ -8,31 +8,36 @@ project_list = [
         'id': 1,
         "title": "Quiz (Using Tkinter)",
         "description": "This is a program which uses the OpenWeatherMap API to get weather data based on your longitude and latitude. Based on the data recived from the API it checkes for the possibilities of Rainfall, if there is any possibility of raining then it will alert you through your gmail.",
-        "image_src": "static/images/quiz.jpg"
+        "image_src": "static/images/quiz.jpg",
+        "alt_text": "quiz logo"
     },
     {
         'id': 2,
         "title": "Arcade Games (Pong, Crossy road)",
         "description": "This is a program which uses the OpenWeatherMap API to get weather data based on your longitude and latitude. Based on the data recived from the API it checkes for the possibilities of Rainfall, if there is any possibility of raining then it will alert you through your gmail.",
-        "image_src": "static/images/game.jpg"
+        "image_src": "static/images/game.jpg",
+        "alt_text": "arcade game logo"
     },
     {
         'id': 3,
         "title": "Rainfall Alert",
         "description": "This is a program which uses the OpenWeatherMap API to get weather data based on your longitude and latitude. Based on the data recived from the API it checkes for the possibilities of Rainfall, if there is any possibility of raining then it will alert you through your gmail.",
-        "image_src": "static/images/rainfall.jpg"
+        "image_src": "static/images/rainfall.jpg",
+        "alt_text": "rainfall logo"
     },
     {
         'id': 4,
         "title": "Automated Amazon Price Tracker",
         "description": "This is a program which uses the OpenWeatherMap API to get weather data based on your longitude and latitude. Based on the data recived from the API it checkes for the possibilities of Rainfall, if there is any possibility of raining then it will alert you through your gmail.",
-        "image_src": "static/images/amazon.jpg"
+        "image_src": "static/images/amazon.jpg",
+        "alt_text": "amazon logo"
     },
     {
         'id': 5,
         "title": "Automatic Parking Ticket Generator",
         "description": "This is a program which uses the OpenWeatherMap API to get weather data based on your longitude and latitude. Based on the data recived from the API it checkes for the possibilities of Rainfall, if there is any possibility of raining then it will alert you through your gmail.",
-        "image_src": "static/images/pay_parking.jpg"
+        "image_src": "static/images/pay_parking.jpg",
+        "alt_text": "pay parking ticket logo"
     }
 ]
 
