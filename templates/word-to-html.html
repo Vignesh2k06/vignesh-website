@@ -1,0 +1,98 @@
+
+
+<form id="myForm">
+
+    <div>
+        <h5>General Instructions</h5>
+        <ol>
+            <li>The upload document should be of type <b>.docx</b></li>
+            <li>All the headings in the word document should be <b>Bold</b>.</li>
+            <li>List items should be either it should start with numbers or bullets</li>
+        </ol>
+    </div><br>
+
+    <div>
+        <h5>Select your preferance</h5>
+        <div class="form-check">
+
+            <label><b>Heading tag:</b> &emsp; &emsp; &nbsp;</label>
+
+            <input class="form-check-input" type="radio" name="headingRadios" id="exampleRadios1" value="h1" checked>
+            <label class="form-check-label" for="exampleRadios1">H1 &emsp; &ensp;</label>
+
+            <input class="form-check-input" type="radio" name="headingRadios" id="exampleRadios2" value="h2">
+            <label class="form-check-label" for="exampleRadios2">H2 &emsp; &ensp;</label>
+
+            <input class="form-check-input" type="radio" name="headingRadios" id="exampleRadios3" value="h3">
+            <label class="form-check-label" for="exampleRadios3">H3 &emsp; &ensp;</label>
+
+            <input class="form-check-input" type="radio" name="headingRadios" id="exampleRadios4" value="h4">
+            <label class="form-check-label" for="exampleRadios4">H4 &emsp; &ensp;</label>
+
+            <input class="form-check-input" type="radio" name="headingRadios" id="exampleRadios5" value="h5">
+            <label class="form-check-label" for="exampleRadios5">H5 &emsp; &ensp;</label>
+
+            <input class="form-check-input" type="radio" name="headingRadios" id="exampleRadios6" value="h6">
+            <label class="form-check-label" for="exampleRadios6">H6 &emsp; &ensp;</label>
+        </div>
+
+        <div class="form-check">
+            <label><b>Paragraph tag:</b> &emsp; &ensp;</label>
+            <input class="form-check-input" type="radio" name="paragraphRadios" id="paragraphRadio1" value="p" checked>
+            <label class="form-check-label" for="paragraphRadio1">P &emsp; &ensp;</label>
+        </div>
+
+        <div class="form-check">
+            <label><b>Lists tag:</b> &emsp; &emsp; &emsp; &ensp;</label>
+            <input class="form-check-input" type="radio" name="listsRadios" id="listRadio1" value="ul" checked>
+            <label class="form-check-label" for="listRadio1">UL &emsp; &ensp;</label>
+
+            <input class="form-check-input" type="radio" name="listsRadios" id="listRadio2" value="ol">
+            <label class="form-check-label" for="listRadio2">OL &emsp; &ensp;</label>
+        </div>
+
+    </div><br>
+
+    <div>
+        <h5>Upload a Word document</h5>
+        <div class="form-group">
+            <input type="file" class="form-control-file" id="file" name="file" accept=".doc, .docx">
+        </div>
+    </div><br>
+
+    <!-- <input type="submit" name="Convert"> -->
+    <button type="submit">Convert</button>
+
+</form>
+
+<br>
+
+<!-- <p id="response">djsjksjklaj</p> -->
+<textarea rows="20" cols="120" id="response"></textarea>
+
+<script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('POST', '/upload', true);
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 400) {
+                var data = xhr.responseText; // Get the response as text
+                document.getElementById('response').textContent = data; // Display the response
+            } else {
+                console.error('Error: ' + xhr.status);
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('Request failed');
+        };
+
+        xhr.send(formData);
+    });
+</script>

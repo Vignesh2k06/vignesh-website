@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'bootstrap.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Vignesh Boopathy</title>
+</head>
+<body>
+    <!-- Header -->
+    {% include 'header.html' %}
+
+    <div class="page page1">
+        <div class="left-side">
+            <h1 id="type" style="font-weight: bold;">{{project["title"]}}</h1>
+            {% if "short_description" in project %}
+                <h2>{{project["short_description"]}}</h2> 
+            {% endif %}
+        </div>
+        <div class="right_side">
+            <img src="{{ url_for('static', filename=project['image_src'])}}" alt="{{project['alt_text']}}"  style="width: 260px; height: 200px;">
+        </div>
+    </div>
+
+    <div class="page page2">
+        {% include 'word-to-html.html' %}
+    </div>
+
+    <!-- Footer -->
+    <div class="page page1 footer">
+        {% include 'footer.html' %}
+    </div>
+    <script src="static/type_name.js"></script>
+    </body>
+</html>

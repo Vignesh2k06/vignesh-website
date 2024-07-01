@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     {% include 'bootstrap.html' %}
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Vignesh Boopathy</title>
 </head>
 <body>
@@ -11,25 +11,31 @@
 
     <div class="page page1">
         <div class="left-side">
-            <h1 id="type" style="font-weight: bold;">I'm </h1>
+            <h1 style="font-weight: bold;">I'm Vignesh Boopathy</h1>
             <h2>a Programmar</h2>
             <br>
             <button class="btn1"><span></span><a href="mailto:vignesh2k06@gmail.com" style="color: black;">Contact me</a></button>
             <button class="btn1"><span></span> Resume</button>    
         </div>
         <div class="right_side">
-            <img src="static/images/student_img.png" alt="my-image">
+            <img src="{{ url_for('static', filename='images/student_img.png') }}" alt="my-image">
         </div>
     </div>
 
     <!-- Page 2 (Personal Projects) -->
     <div class="page page2">
         <div class="container">
-            <h1 ><b>Personal Projects</b></h1>
+            <h1 ><b>List of Personal Projects</b></h1>
 
              <!-- Project list -->
              {% for project in projects %}
-                {% include 'highlights.html' %}
+                <div class="row">
+                  <div class="col-12 col-lg-9 col-md-8 text">
+                      <h2><a href="/projects/{{project['page_url_slug']}}">{{project["title"]}}</a></h2>
+                      <p>{{project["description"]}}</p>
+                    </div>
+                    <hr>
+                </div>
              {% endfor %}
 
         </div>
