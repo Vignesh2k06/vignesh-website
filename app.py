@@ -1,4 +1,5 @@
 import os
+import shutil
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
 
@@ -60,8 +61,13 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
         html_content = convert_to_html(filepath, request.form)
+
+        if os.path.exists(UPLOAD_FOLDER):
+            shutil.rmtree(UPLOAD_FOLDER)
         return html_content
     else:
+        if os.path.exists(UPLOAD_FOLDER):
+            shutil.rmtree(UPLOAD_FOLDER)
         return 'File type not allowed'
 
 
